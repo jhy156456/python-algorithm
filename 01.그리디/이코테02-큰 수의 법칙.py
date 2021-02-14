@@ -11,7 +11,7 @@ if data[0] != data[1]:
     while i != m:
         if k > 0:
             result = result + data[0]
-        else:
+        else: 
             result = result + data[1]
             k = originalK
         k = k - 1

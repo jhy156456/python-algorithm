@@ -6,7 +6,7 @@ def binarySearch(target, start, end):
         return center
     elif target < nArr[center]:
         return binarySearch(target, start, center - 1)
-    else:   
+    else:
         return binarySearch(target, center + 1, end)
 
 n = int(input())

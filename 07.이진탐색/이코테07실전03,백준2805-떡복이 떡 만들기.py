@@ -9,7 +9,7 @@ def binary_search(target, start, end):
 
         return binary_search(target, center + 1, end)
     # 일치하는경우
-    else:
+    else: 
         return center
 
 

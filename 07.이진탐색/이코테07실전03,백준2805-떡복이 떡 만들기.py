@@ -9,12 +9,12 @@ def binary_search(target, start, end):
 
         return binary_search(target, center + 1, end)
     # 일치하는경우
-    else: 
+    else:
         return center
 
 
 def getSumList(minusValue):
-    sum = 0
+    sum =0
     for i in list:
         if i > minusValue:
             sum += i - minusValue

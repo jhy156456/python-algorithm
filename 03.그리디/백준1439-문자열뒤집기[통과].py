@@ -4,7 +4,7 @@ count0 = 0
 count1 = 0
 
 if list[0] == '1':
-    # 1이면 0으로  만들어야함
+    # 1이면 0으로 만들어야함
 
     count0 += 1
 elif list[0] == '0':

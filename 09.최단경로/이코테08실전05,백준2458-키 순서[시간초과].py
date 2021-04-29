@@ -12,7 +12,7 @@ for a in range(1, n + 1):
             graph[a][b] = 0
 for _ in range(m):
     a, b = map(int, input().split())
-    # a번 노드에서 b번 노드로 가는 비용이 1라는 의미
+    # a번 노드에서 b번 노드로 가는 비용이 1이라는 의미
     graph[a][b] = 1
 
 # 플로이드 - 워셜

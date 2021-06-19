@@ -7,7 +7,7 @@ for i in range(1, len(numbers)):
         if numbers[i] < results[j]:
             results.insert(j,numbers[i])
             break
-        if j == i-1:
+        if j == i -1:
             results.append(numbers[i])
 
 print(results)

@@ -22,35 +22,41 @@ vector<int> solution(vector<string> gems) {
 	int length = gems.size();
 	set<string> mySet;
 	vector<int> answer;
-
-	//º¸¼®ÀÇ Áßº¹À» Á¦°ÅÇÑ´Ù
+	//ë³´ì„ì˜ ì¤‘ë³µì„ ì œê±°í•œë‹¤
 	for (int i = 0; i < length; i++) {
 		mySet.insert(gems[i]);
 	}
 	map<string, int>  myMap;
-	int start, end = 0;
 	int gugan = 1000000;
+	int min = 0;
+	bool isMinChange = true;
 	for (int i = 0; i < length; i++) {
-
 		if (myMap.find(gems[i]) == myMap.end()) {
-			//¸øÃ£¾ÒÀ¸¸é ³Ö´Â´Ù
+			//ëª»ì°¾ì•˜ìœ¼ë©´ ë„£ëŠ”ë‹¤
 			myMap.insert(pair<string, int>(gems[i], i));
 		}
 		else {
-			//Ã£¾ÒÀ¸¸é »õ·Î¿î ÀÎµ¦½º·Î °»½ÅÇÑ´Ù
+			//ì°¾ì•˜ìœ¼ë©´ ê°’ì„ ë°”ê¾¼ë‹¤
+			//ì´ë•Œ ë§¨ ì•ì—ê°’ì´ë©´? ìµœì†Ÿê°’ì´ ë³€ê²½ëœê²ƒì´ë¯€ë¡œ
+			//answerë°°ì—´ì„ ê°±ì‹  í•  í•„ìš”ê°€ ìˆìŒ
+			if (myMap[gems[i]] == min) {
+				isMinChange = true;
+			}
 			myMap[gems[i]] = i;
 		}
-
-		if (myMap.size() == mySet.size()) {
-			int min = (min_element(myMap.begin(), myMap.end(), compare)->second) + 1;
-			int max = (max_element(myMap.begin(), myMap.end(), compare)->second) + 1;
+		if (myMap.size() == mySet.size() && isMinChange) {
+			//ê³„ì† ìµœì†Ÿê°’ì„ êµ¬í•˜ë‹ˆê¹Œ ì‹œê°„ì´ˆê³¼ê³¼ ë‚œë‹¤..
+			min = min_element(myMap.begin(), myMap.end(), compare)->second;
+			int max = i;
 			int tempGugan = max - min;
-			if (tempGugan < gugan) {
+			if (tempGugan<gugan) {
 				gugan = tempGugan;
 				answer.clear();
-				answer.push_back(min);
-				answer.push_back(max);
+				answer.push_back(min + 1);
+				answer.push_back(max + 1);
+				
 			}
+			isMinChange = false;
 		}
 	}
 	
@@ -65,7 +71,7 @@ vector<int> solution(vector<string> gems) {
 }
 int main() {
 
-	vi answer = solution({ "AA","AB","AC","AA","AC" });
+	vi answer = solution({ "AA", "AB", "AC", "AA", "AC" });
 	for (int i = 0; i < answer.size(); i++) {
 		cout << answer[i] << endl;
 	}

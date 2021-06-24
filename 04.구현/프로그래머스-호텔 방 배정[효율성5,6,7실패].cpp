@@ -8,7 +8,7 @@ typedef pair<int, int> ii;
 typedef vector<int> vi;
 typedef vector<string> vs;
 typedef unsigned long long ull;
-typedef long long ll;
+typedef long long ll;  
 vector<pair<ll, ll>> problems;
 vector<long long> solution(long long k, vector<long long> room_number) {
 	vector<long long> answer;
